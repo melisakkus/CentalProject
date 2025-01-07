@@ -35,7 +35,12 @@ namespace Cental.BusinessLayer.Concrete
 
         public T TGetById(int id)
         {
-            return _genericDal.GetById(id);
+            var value = _genericDal.GetById(id);
+            if (value == null)
+            {
+                throw new Exception("Id'ye göre değer bulunamadı");
+            }
+            return value;
         }
 
         public void TUpdate(T entity)
