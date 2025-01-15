@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cental.DataAccessLayer.Abstract
 {
-    public interface IBrandDal : IGenericDal<Brand>
+    public interface IReviewDal : IGenericDal<Review>
     {
     }
 }

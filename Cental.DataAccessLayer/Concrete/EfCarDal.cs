@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace Cental.DataAccessLayer.Concrete
 {
-    public class EfBrandDal : GenericRepository<Brand>, IBrandDal
+    public class EfCarDal : GenericRepository<Car>, ICarDal
     {
-        public EfBrandDal(CentalContext context) : base(context)
-        { }
+        public EfCarDal(CentalContext context) : base(context)
+        {
+        }
     }
 }

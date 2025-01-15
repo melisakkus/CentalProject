@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.DataAccessLayer.Abstract
+namespace Cental.BusinessLayer.Abstract
 {
-    public interface IBrandDal : IGenericDal<Brand>
+    public interface IFeatureService : IGenericService<Feature>
     {
     }
 }

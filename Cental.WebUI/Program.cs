@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<CentalContext>();
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly())
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IAboutDal, EfAboutDal>();
@@ -22,8 +22,26 @@ builder.Services.AddScoped<IBannerDal, EfBannerDal>();
 builder.Services.AddScoped<IBrandService, BrandManager>();
 builder.Services.AddScoped<IBrandDal, EfBrandDal>();
 
-builder.Services.AddScoped(typeof(IGenericDal<>),typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IGenericService<>),typeof(GenericManager<>));
+builder.Services.AddScoped<ICarService, CarManager>();
+builder.Services.AddScoped<ICarDal, EfCarDal>();
+
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
+builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
+
+builder.Services.AddScoped<IProcessService, ProcessManager>();
+builder.Services.AddScoped<IProcessDal, EfProcessDal>();
+
+builder.Services.AddScoped<IReviewService, ReviewManager>();
+builder.Services.AddScoped<IReviewDal, EfReviewDal>();
+
+builder.Services.AddScoped<IServiceService, ServiceManager>();
+builder.Services.AddScoped<IServiceDal, EfServiceDal>();
+
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
+builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>)); 
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
 
 builder.Services.AddControllersWithViews();
 

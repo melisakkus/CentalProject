@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace Cental.DataAccessLayer.Concrete
 {
-    public class EfBrandDal : GenericRepository<Brand>, IBrandDal
+    public class EfReviewDal : GenericRepository<Review>, IReviewDal
     {
-        public EfBrandDal(CentalContext context) : base(context)
-        { }
+        public EfReviewDal(CentalContext context) : base(context)
+        {
+        }
     }
 }
