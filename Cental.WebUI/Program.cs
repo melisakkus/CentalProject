@@ -1,4 +1,4 @@
- using Cental.BusinessLayer.Abstract;
+using Cental.BusinessLayer.Abstract;
 using Cental.BusinessLayer.Concrete;
 using Cental.DataAccessLayer.Abstract;
 using Cental.DataAccessLayer.Concrete;

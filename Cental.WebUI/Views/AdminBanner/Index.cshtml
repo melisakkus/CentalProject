@@ -1,7 +1,6 @@
-﻿@using Cental.DtoLayer.BannerDtos
-@model List<ResultBannerDto>
+﻿@model List<ResultBannerDto>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Öne Çıkan Alan";
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
@@ -30,5 +29,6 @@
         </tr>
     }
 </table>
-
-<a asp-action="CreateBanner" asp-controller="AdminBanner" class="btn btn-primary">Yeni Öne Çıkan Alan Ekle</a>
+<div class="text-center">
+    <a asp-action="CreateBanner" asp-controller="AdminBanner" class="btn btn-primary">Yeni Öne Çıkan Alan Ekle</a>
+</div>
