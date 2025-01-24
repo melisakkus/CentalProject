@@ -28,8 +28,8 @@
             <td>@item.ModelName</td>
             <td>@item.Year</td>
             <td>@item.Kilometer</td>
-            <td><a asp-action="DeleteAbout" asp-route-id="@item.CarId" class="btn btn-danger">Sil</a></td>
-            <td><a asp-action="UpdateAbout" asp-route-id="@item.CarId" class="btn btn-warning">Güncelle</a></td>
+            <td><a asp-action="DeleteCar" asp-route-id="@item.CarId" class="btn btn-danger">Sil</a></td>
+            <td><a asp-action="UpdateCar" asp-route-id="@item.CarId" class="btn btn-warning">Güncelle</a></td>
         </tr>
     }
 </table>

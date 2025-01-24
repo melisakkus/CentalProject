@@ -33,5 +33,22 @@ namespace Cental.WebUI.Controllers
             _brandService.TCreate(model);
             return RedirectToAction("Index");
         }
+
+        public IActionResult UpdateBrand(int id)
+        {
+            var brand = _brandService.TGetById(id);
+            return View(brand);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateBrand(Brand model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            _brandService.TUpdate(model);
+            return RedirectToAction("Index");
+        }
     }
 }

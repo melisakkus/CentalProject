@@ -12,8 +12,9 @@ namespace Cental.BusinessLayer.Validators
     {
         public BrandValidator() 
         {
-            RuleFor(x=>x.BrandName).NotEmpty().WithMessage("Marka ismi boş bırakılamaz.");
-            RuleFor(x => x.BrandName).MinimumLength(3).WithMessage("Marka ismi en az 3 karakter olmalıdır.");
+            RuleFor(x=>x.BrandName).
+                NotEmpty().WithMessage("Marka ismi boş bırakılamaz.").
+                MinimumLength(3).WithMessage("Marka ismi en az 3 karakter olmalıdır.");
         }
     }
 }
