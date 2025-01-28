@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.ViewComponents.AdminLayout
 {
-    public class _AdminLayoutSidebarComponent : ViewComponent
+    public class _AdminLayoutSidebarComponent(UserManager<AppUser> _userManager) : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.nameSurname = string.Join(" ",user.FirstName,user.LastName);
+            ViewBag.userImage = user.ImageUrl;
+			return View();
         }
     }
 }
