@@ -35,6 +35,7 @@ builder.Services.ConfigureApplicationCookie(config =>
 {
 	config.LoginPath = "/Login/Index";
 	config.LogoutPath = "/Login/Logout";
+	config.AccessDeniedPath = "/ErrorPage/AccessDenied";
 });
 
 var app = builder.Build();
@@ -49,6 +50,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStatusCodePagesWithReExecute("/ErrorPage/NotFound404");
+
 
 app.UseRouting();
 app.UseAuthentication(); //sistemde kayýtlý mý
