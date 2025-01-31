@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
-    [AllowAnonymous]
-    public class UILayoutController : Controller
+    public class RoleAssignController(UserManager<AppUser> userManager) : Controller
     {
         public IActionResult Index()
         {
