@@ -1,0 +1,88 @@
+﻿@model List<ResultUserDto>
+@*
+    _DefaultManagerComponent
+*@
+
+<div class="container-fluid team pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 text-capitalize mb-3">Müşteri<span class="text-primary"> </span> Danışmanlarımız</h1>
+            <p class="mb-0">
+                Müşteri Hizmetleri Danışmanlarımız, araç kiralama süreciniz boyunca sizlere en iyi desteği sunmak için burada! Rezervasyon işlemleriniz, araç seçenekleri, sigorta detayları ve yolculuğunuzla ilgili her türlü sorunuz için bizimle iletişime geçebilirsiniz. 7/24 ulaşılabilir müşteri hizmetlerimizle, güvenli ve konforlu bir deneyim yaşamanız için yanınızdayız.
+            </p>
+        </div>
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item p-4 pt-0">
+                        <div class="team-img">
+                            <img src="@item.ImageUrl" class="img-fluid rounded w-100" style="height:400px; width:70px" alt="Image">
+                        </div>
+                        <div class="team-content pt-4">
+                            <h4>@item.FullName</h4>
+                            <p>Müşteri Danışmanı</p>
+                            <div class="team-icon d-flex justify-content-center">
+                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            @*             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="team-item p-4 pt-0">
+            <div class="team-img">
+            <img src="~/Cental-1.0.0/img/team-2.jpg" class="img-fluid rounded w-100" alt="Image">
+            </div>
+            <div class="team-content pt-4">
+            <h4>MARTIN DOE</h4>
+            <p>Profession</p>
+            <div class="team-icon d-flex justify-content-center">
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="team-item p-4 pt-0">
+            <div class="team-img">
+            <img src="~/Cental-1.0.0/img/team-3.jpg" class="img-fluid rounded w-100" alt="Image">
+            </div>
+            <div class="team-content pt-4">
+            <h4>MARTIN DOE</h4>
+            <p>Profession</p>
+            <div class="team-icon d-flex justify-content-center">
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="team-item p-4 pt-0">
+            <div class="team-img">
+            <img src="~/Cental-1.0.0/img/team-4.jpg" class="img-fluid rounded w-100" alt="Image">
+            </div>
+            <div class="team-content pt-4">
+            <h4>MARTIN DOE</h4>
+            <p>Profession</p>
+            <div class="team-icon d-flex justify-content-center">
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            </div>
+            </div>
+            </div> *@
+        </div>
+    </div>
+</div>
