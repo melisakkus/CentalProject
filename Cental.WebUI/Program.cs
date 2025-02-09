@@ -9,6 +9,7 @@ using Cental.DataAccessLayer.Repositories;
 using Cental.EntityLayer.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using System.Reflection;
 
@@ -19,7 +20,8 @@ builder.Services.AddDbContext<CentalContext>();
 
 builder.Services.AddIdentity<AppUser, AppRole>(cfg => { cfg.User.RequireUniqueEmail = true; }).
                  AddEntityFrameworkStores<CentalContext>().
-                 AddErrorDescriber<CustomErrorDescriber>();
+                 AddErrorDescriber<CustomErrorDescriber>().
+                 AddDefaultTokenProviders();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -36,6 +38,8 @@ builder.Services.ConfigureApplicationCookie(config =>
     config.LoginPath = "/Login/Index";
     config.LogoutPath = "/Login/Logout";
     config.AccessDeniedPath = "/ErrorPage/AccessDenied";
+    config.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    config.SlidingExpiration = true;
 });
 
 var app = builder.Build();
