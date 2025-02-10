@@ -40,7 +40,8 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult FilterCars(string brand, string gear, string gas, int year)
         {
-            IQueryable<Car> values = _context.Cars.AsQueryable();
+            IQueryable<Car> values = _context.Cars.AsQueryable(); //filtrelenebilir bir liste oluşturduk.
+            //asqueryable kullandık çünkü value içerisinde şartlı sorgulama yani where koşullarını kullanabilmek için.
 
             if (!string.IsNullOrEmpty(brand)){ 
                 values = values.Where(x => x.Brand.BrandName == brand);
@@ -65,7 +66,11 @@ namespace Cental.WebUI.Controllers
 
             }
 
-            var filterList = values.ToList();
+            var filterList = values.ToList(); //filtrelenebilir listeyi normal listeye çevirdik
+            //Iquaryable tipinde olduğu için listeye çeviriyoruz çünkü view'e liste tipinde veri taşıyacağız.
+            //farklı view'e taşıyacağımız için TempData kullanıyoruz.   
+            //tempdata tipini bilemeyeceğimiz için json formatına çevirip taşıyoruz.
+            //ilişkili tablo olduğu için döngüye girmemesi adına ReferenceHandler.IgnoreCycles kullanıyoruz.
             TempData["FilterCars"] = JsonSerializer.Serialize(filterList, new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.IgnoreCycles

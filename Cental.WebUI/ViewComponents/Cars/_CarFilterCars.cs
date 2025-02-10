@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Cental.WebUI.ViewComponents.Cars
 {
-    public class _CarFilterCars(ICarService _carService , IBrandService _brandService) : ViewComponent
-    {
+    public class _CarFilterCars(IBrandService _brandService) : ViewComponent
+    {   //arabaları markalarına göre getirelim
         public IViewComponentResult Invoke()
         {
             var brands = _brandService.TGetAll();
