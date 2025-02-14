@@ -5,7 +5,7 @@
     Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 @{
-    int count = Model.PageSize * Model.PageNumber - (Model.PageSize ) ;
+    int count = (Model.PageNumber * Model.PageSize - (Model.PageSize - 1));
 }
 <table class="table table-bordered">
     <tr>
@@ -17,7 +17,6 @@
 
     @foreach (var item in Model)
     {
-        count++;
 
         <tr>
             <td>@count</td>
@@ -25,6 +24,7 @@
             <td><a asp-action="DeleteBrand" asp-route-id="@item.BrandId" class="btn btn-danger"><i class="fa fa-trash"></i> Sil</a></td>
             <td><a asp-action="UpdateBrand" asp-route-id="@item.BrandId" class="btn btn-warning"><i class="fa fa-pen"></i> Güncelle</a></td>
         </tr>
+        count++;
 
     }
 </table>
