@@ -1,7 +1,9 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper.Features;
+using Cental.BusinessLayer.Abstract;
 using Cental.BusinessLayer.Concrete;
 using Cental.DataAccessLayer.Abstract;
 using Cental.DataAccessLayer.Concrete;
+using Cental.EntityLayer.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -27,11 +29,27 @@ namespace Cental.BusinessLayer.Extensions
 
             services.AddScoped<ICarDal, EfCarDal>();
             services.AddScoped<ICarService, CarManager>();
-
-            services.AddScoped<IImageService,ImageService>();
             
+            services.AddScoped<IFeatureDal, EfFeatureDal>();
+            services.AddScoped<IFeatureService, FeatureManager>();
+
+            services.AddScoped<IProcessDal,EfProcessDal>();
+            services.AddScoped<IProcessService, ProcessManager>();
+
+            services.AddScoped<IReviewDal, EfReviewDal>();
+            services.AddScoped<IReviewService, ReviewManager>();
+
+            services.AddScoped<IServiceDal, EfServiceDal>();
+            services.AddScoped<IServiceService, ServiceManager>();
+
+            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
+
             services.AddScoped<IUserSocialService, UserSocialManager>();
-            services.AddScoped<IUserSocialDal,EfUserSocialDal>();
+            services.AddScoped<IUserSocialDal, EfUserSocialDal>();
+
+            services.AddScoped<IImageService, ImageService>();
+
         }
     }
 }

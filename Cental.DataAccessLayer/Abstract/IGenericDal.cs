@@ -14,6 +14,5 @@ namespace Cental.DataAccessLayer.Abstract
         void Delete(int id);
         void Update(T entity);
         void Create(T entity);
-
     }
 }

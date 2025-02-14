@@ -1,0 +1,31 @@
+﻿@model List<ResultAboutDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Vizyon</th>
+        <th>Misyon</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AboutId</td>
+            <td>@item.Vision</td>
+            <td>@item.Mision</td>
+            <td><a asp-action="DeleteAbout" asp-route-id="@item.AboutId" class="btn btn-danger">Sil</a></td>
+            <td><a asp-action="UpdateAbout" asp-route-id="@item.AboutId" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<div class="text-center">
+    <a asp-action="CreateAbout" asp-controller="AdminAbout" asp-area="Admin" class="btn btn-primary">Yeni Hakkımızda Ekle</a>
+</div>
