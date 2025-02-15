@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class AdminFeatureController(IFeatureService _featureService, IMapper _mapper) : Controller
     {
         public IActionResult Index()

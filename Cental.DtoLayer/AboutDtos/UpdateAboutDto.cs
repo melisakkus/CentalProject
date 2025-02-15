@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,8 @@ namespace Cental.DtoLayer.AboutDtos
         public string NameSurname { get; set; }
         public string JobTitle { get; set; }
         public string ProfilePicture { get; set; }
+        public IFormFile? ImageFile1 { get; set; }
+        public IFormFile? ImageFile2 { get; set; }
+        public IFormFile? ProfilePictureFile { get; set; }
     }
 }

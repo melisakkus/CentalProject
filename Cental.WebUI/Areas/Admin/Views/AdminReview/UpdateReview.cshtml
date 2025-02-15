@@ -7,14 +7,28 @@
 <form method="post">
     <input type="hidden" asp-for="ReviewId"/>
     <div>
-        <label>Puan</label>
-        <input type="number" class="form-control" asp-for="Rating" />
+        <label>Puanınızı giriniz : </label>
+        <select class="form-control" asp-for="Rating">
+            <option selected disabled>Seçim yapınız.</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
     </div>
     <br />
 
     <div>
-        <label>Araba</label>
-        <input type="number" class="form-control" asp-for="CarId" />
+        <label>Arabanızı seçiniz : </label>
+        <select class="form-control" asp-items="@ViewBag.CarList" asp-for="CarId">
+            <option selected disabled>Puanlama yapmak istediğiniz aracı seçiniz.</option>
+        </select>
     </div>
     <br />
 

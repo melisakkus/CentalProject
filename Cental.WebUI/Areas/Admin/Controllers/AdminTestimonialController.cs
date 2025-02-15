@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class AdminTestimonialController(ITestimonialService _testimonialService, IMapper _mapper,IImageService _imageService) : Controller
     {
 

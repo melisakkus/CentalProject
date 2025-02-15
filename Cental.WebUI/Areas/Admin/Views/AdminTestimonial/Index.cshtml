@@ -28,7 +28,17 @@
             <td><image src="@item.ImageUrl" style="height:150px;width:150px" ></image></td>
             <td>@item.Name</td>
             <td>@item.Title</td>
-            <td>@item.Review</td>
+            <td>
+                @item.Review / 5 <br />
+                @for (int i = 1; i <= item.Review; i++)
+                {
+                    <i class="fa-solid fa-star"></i>
+                }
+                @for (int i = 1; i <= (5 - item.Review); i++)
+                {
+                    <i class="fa-regular fa-star"></i>
+                }
+            </td>
             <td>@item.Comment</td>
             <td><a asp-action="DeleteTestimonial" asp-route-id="@item.TestimonialId" class="btn btn-danger">Sil</a></td>
             <td><a asp-action="UpdateTestimonial" asp-route-id="@item.TestimonialId" class="btn btn-warning">Güncelle</a></td>
@@ -37,5 +47,5 @@
 </table>
 
 <div class="text-center">
-    <a asp-action="CreateTestimonial" asp-controller="AdminTestimonial" asp-area="Admin" class="btn btn-primary">Yeni Hakkımızda Ekle</a>
+    <a asp-action="CreateTestimonial" asp-controller="AdminTestimonial" asp-area="Admin" class="btn btn-primary">Yeni Müşteri Yorumu Ekle</a>
 </div>

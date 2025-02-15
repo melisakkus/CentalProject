@@ -1,10 +1,10 @@
 ﻿@model CreateAboutDto
 @{
-    ViewData["Title"] = "CreateAbout";
+    ViewData["Title"] = "Hakkımızda Alanı Yeni Bilgi Ekle";
     Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
 }
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <label>Vizyonumuz</label>
     <input type="text" asp-for="Vision" class="form-control" />
     <br />
@@ -25,12 +25,12 @@
     <input type="number" asp-for="StartYear" class="form-control" />
     <br />
 
-    <label>Resim 1</label>
-    <input type="text" asp-for="ImageUrl1" class="form-control" />
+    <label>Resim 1 için Ekleme Yapınız</label>
+    <input type="file" asp-for="ImageFile1" class="form-control" />
     <br />
 
-    <label>Resim 2</label>
-    <input type="text" asp-for="ImageUrl2" class="form-control" />
+    <label>Resim 2 için Ekleme Yapınız</label>
+    <input type="file" asp-for="ImageFile2" class="form-control" />
     <br />
 
     <label>Madde 1</label>
@@ -57,8 +57,8 @@
     <input type="text" asp-for="JobTitle" class="form-control" />
     <br />
 
-    <label>Profil Fotoğrafı</label>
-    <input type="text" asp-for="ProfilePicture" class="form-control" />
+    <label>Profil Fotoğrafı Seçiniz</label>
+    <input type="file" asp-for="ProfilePictureFile" class="form-control" />
     <br />
 
     <div class="text-center">

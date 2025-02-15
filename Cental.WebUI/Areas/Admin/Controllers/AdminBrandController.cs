@@ -9,7 +9,7 @@ using PagedList.Core;
 namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class AdminBrandController(IBrandService _brandService,IMapper _mapper) : Controller
     {
         public IActionResult Index(int page = 1, int pageSize = 3)

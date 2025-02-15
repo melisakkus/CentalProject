@@ -48,6 +48,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IUserSocialService, UserSocialManager>();
             services.AddScoped<IUserSocialDal, EfUserSocialDal>();
 
+            services.AddScoped<IDashboardDal, EfDashboardDal>();
+            services.AddScoped<IDashboardService, DashboardManager>();
+
             services.AddScoped<IImageService, ImageService>();
 
         }

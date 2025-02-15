@@ -1,12 +1,10 @@
 ﻿@model UpdateAboutDto
 @{
-    ViewData["Title"] = "UpdateAbout";
+    ViewData["Title"] = "Hakkımızda Alanı Bilgi Güncelleme";
     Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
 }
 
-<h1>Hakkımızda Güncelleme Sayfası</h1>
-
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
     <input type="hidden" asp-for="AboutId" />
 
@@ -30,12 +28,25 @@
     <input type="number" asp-for="StartYear" class="form-control" />
     <br />
 
-    <label>Resim 1</label>
-    <input type="text" asp-for="ImageUrl1" class="form-control" />
+    <label>Tercih edilen Resim 1:</label>
+    <br />
+    <input type="hidden" asp-for="ImageUrl1" class="form-control" />
+    <image src="@Model.ImageUrl1" style="height:100px;width:100px"></image>
+    <br /> <br />
+    <label>Resim 1 için Yeni Resim Seçiniz</label>
+    <br />
+    <input type="file" asp-for="ImageFile1" class="form-control" />
     <br />
 
-    <label>Resim 2</label>
-    <input type="text" asp-for="ImageUrl2" class="form-control" />
+
+    <label>Tercih edilen Resim 2:</label>
+    <br />
+    <input type="hidden" asp-for="ImageUrl2" class="form-control" />
+    <image src="@Model.ImageUrl2" style="height:100px;width:100px"></image>
+    <br /> <br />
+    <label>Resim 2 için Yeni Resim Seçiniz</label>
+    <br />
+    <input type="file" asp-for="ImageFile2" class="form-control" />
     <br />
 
     <label>Madde 1</label>
@@ -62,8 +73,14 @@
     <input type="text" asp-for="JobTitle" class="form-control" />
     <br />
 
-    <label>Profil Fotoğrafı</label>
-    <input type="text" asp-for="ProfilePicture" class="form-control" />
+    <label>Tercih edilen Profil Fotoğrafı:</label>
+    <br />
+    <input type="hidden" asp-for="ProfilePicture" class="form-control" />
+    <image src="@Model.ProfilePicture" style="height:100px;width:100px"></image>
+    <br /> <br />
+    <label>Profil Fotoğrafı için Yeni Resim Seçiniz</label>
+    <br />
+    <input type="file" asp-for="ProfilePictureFile" class="form-control" />
     <br />
 
     <div class="text-center">

@@ -7,15 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = "Admin")]
-    [AllowAnonymous]
-
+    [Authorize(Roles = "Admin")]
     public class AdminAboutController : Controller
     {
         private readonly IAboutService _aboutService;
-        public AdminAboutController(IAboutService aboutService)
+        private readonly IImageService _imageService;
+        public AdminAboutController(IAboutService aboutService,IImageService imageService)
         {
             _aboutService = aboutService;
+            _imageService = imageService;
         }
 
         public IActionResult Index()
@@ -39,8 +39,24 @@ namespace Cental.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAbout(CreateAboutDto model)
+        public async Task<IActionResult> CreateAbout(CreateAboutDto model)
         {
+            if(model.ImageFile1 != null)
+            {
+                var imageUrl = await _imageService.SaveImageAsync(model.ImageFile1);
+                model.ImageUrl1 = imageUrl;
+            }
+            if (model.ImageFile2 != null)
+            {
+                var imageUrl1 = await _imageService.SaveImageAsync(model.ImageFile2);
+                model.ImageUrl2 = imageUrl1;
+            }
+            if (model.ProfilePictureFile != null)
+            {
+                var profileUrl = await _imageService.SaveImageAsync(model.ProfilePictureFile);
+                model.ProfilePicture = profileUrl;
+            }
+
             _aboutService.TCreate(new About
             {//manuel olarak object to object mapping yapılır.              
                 Description1 = model.Description1,
@@ -93,8 +109,23 @@ namespace Cental.WebUI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateAbout(UpdateAboutDto model)
+        public async Task<IActionResult> UpdateAbout(UpdateAboutDto model)
         {
+            if (model.ImageFile1 != null)
+            {
+                var imageUrl = await _imageService.SaveImageAsync(model.ImageFile1);
+                model.ImageUrl1 = imageUrl;
+            }
+            if (model.ImageFile2 != null)
+            {
+                var imageUrl2 = await _imageService.SaveImageAsync(model.ImageFile2);
+                model.ImageUrl2 = imageUrl2;
+            }
+            if (model.ProfilePictureFile != null)
+            {
+                var profileUrl = await _imageService.SaveImageAsync(model.ProfilePictureFile);
+                model.ProfilePicture = profileUrl;
+            }
             var about = new About
             {
                 AboutId = model.AboutId,

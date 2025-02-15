@@ -9,20 +9,9 @@ using System.Reflection;
 namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class AdminBannerController : Controller
+    [Authorize(Roles = "Admin")]
+    public class AdminBannerController(IBannerService _bannerService, IMapper _mapper, IImageService _imageService) : Controller
     {
-        private readonly IBannerService _bannerService;
-        private readonly IMapper _mapper;
-        private readonly IImageService _imageService;
-
-        public AdminBannerController(IBannerService bannerService, IMapper mapper, IImageService imageService)
-        {
-            _bannerService = bannerService;
-            _mapper = mapper;
-            _imageService = imageService;
-        }
-
         public IActionResult Index()
         {
             var values = _bannerService.TGetAll();

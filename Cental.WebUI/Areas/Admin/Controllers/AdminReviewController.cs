@@ -4,12 +4,13 @@ using Cental.DtoLayer.ReviewDtos;
 using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class AdminReviewController(IReviewService _reviewService, IMapper _mapper) : Controller
+    [Authorize(Roles = "Admin")]
+    public class AdminReviewController(IReviewService _reviewService, ICarService _carService, IMapper _mapper) : Controller
     {
         public IActionResult Index()
         {
@@ -24,8 +25,20 @@ namespace Cental.WebUI.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        private void SelectCarList()
+        {
+            var cars = _carService.TGetAll();
+            var carList = (from car in cars
+                           select new SelectListItem
+                           {
+                               Text = car.Brand.BrandName + " " + car.ModelName + " " + car.Year,
+                               Value = car.CarId.ToString()
+                           }).ToList();
+            ViewBag.CarList = carList;
+        }
         public IActionResult UpdateReview(int id)
         {
+            SelectCarList();
             var review = _reviewService.TGetById(id);
             var dtoReview = _mapper.Map<UpdateReviewDto>(review);
             return View(dtoReview);
@@ -40,6 +53,7 @@ namespace Cental.WebUI.Areas.Admin.Controllers
 
         public IActionResult CreateReview()
         {
+            SelectCarList();
             return View();
         }
         [HttpPost]

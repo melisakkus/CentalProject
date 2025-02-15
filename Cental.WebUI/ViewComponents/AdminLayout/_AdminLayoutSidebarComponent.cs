@@ -9,9 +9,9 @@ namespace Cental.WebUI.ViewComponents.AdminLayout
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            ViewBag.nameSurname = string.Join(" ",user.FirstName,user.LastName);
+            ViewBag.nameSurname = string.Join(" ", user.FirstName, user.LastName);
             ViewBag.userImage = user.ImageUrl;
-			return View();
+            return View();
         }
     }
 }

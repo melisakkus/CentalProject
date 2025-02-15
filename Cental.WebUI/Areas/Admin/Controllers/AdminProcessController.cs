@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin")]
     public class AdminProcessController(IProcessService _processService, IMapper _mapper) : Controller
     {
         public IActionResult Index()

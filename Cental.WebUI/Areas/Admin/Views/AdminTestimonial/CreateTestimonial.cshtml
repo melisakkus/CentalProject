@@ -24,8 +24,15 @@
     <br />
 
     <div>
-        <label>Puanlama</label>
-        <input type="int" class="form-control" asp-for="Review" />
+        <label>Puanınızı giriniz : </label>
+        <select class="form-control" asp-for="Review">
+            <option selected disabled>Seçim yapınız.</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
     </div>
     <br />
 
