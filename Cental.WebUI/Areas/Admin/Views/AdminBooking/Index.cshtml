@@ -1,0 +1,42 @@
+﻿@model List<Booking>
+@{
+    ViewData["Title"] = "Rezervasyonlar";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
+}
+@{
+    int count = 0;
+}
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Seçilen Araç</th>
+        <th>Alma Noktası</th>
+        <th>Bırakma Noktası</th>
+        <th>Alma Tarihi</th>
+        <th>Bırakma Tarihi</th>
+        <th>Durumu</th>
+        <th>Onayla/Reddet</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var booking in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@booking.Car.ModelName</td>
+            <td>@booking.PickupLocation</td>
+            <td>@booking.DropOffLocation</td>
+            <td>@booking.PickupDate.ToShortDateString()</td>
+            <td>@booking.DropOffDate.ToShortDateString()</td>
+            <td>@booking.Status</td>
+            <td>@booking.IsApproved</td>
+            <td><a asp-action="DeleteRezervation" asp-controller="AdminBooking" asp-area="Admin" asp-route-id="@booking.BookingId" class="btn btn-danger">Sil</a></td>
+            <td><a asp-action="UpdateRezervation" asp-controller="AdminBooking" asp-area="Admin" asp-route-id="@booking.BookingId" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<div class="text-center">
+    <a asp-action="CreateRezervation" asp-controller="AdminBooking" asp-area="Admin" class="btn btn-primary">Yeni Rezervasyon Oluştur</a>
+</div>
