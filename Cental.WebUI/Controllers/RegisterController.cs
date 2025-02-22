@@ -25,7 +25,6 @@ namespace Cental.WebUI.Controllers
             {
                 return View(model);
             }
-            //bir küçük harf, bir büyük harf, bir rakam ve bir sembol içeren en az 6 karakter olmalıdır.
             var result = await _userManager.CreateAsync(user,model.Password );
             if (!result.Succeeded)
             {
@@ -33,9 +32,11 @@ namespace Cental.WebUI.Controllers
                 {
                     ModelState.AddModelError(string.Empty , error.Description);
                 }
+                TempData["Success"] = false;
                 return View(model);
             }
             await _userManager.AddToRoleAsync(user, "User");
+            TempData["Success"] = true;
             return RedirectToAction("Index","Login");
         }
     }

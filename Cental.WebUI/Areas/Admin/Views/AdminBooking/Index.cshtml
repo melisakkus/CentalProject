@@ -1,4 +1,4 @@
-﻿@model List<Booking>
+﻿@model List<ResultBookingDto>
 @{
     ViewData["Title"] = "Rezervasyonlar";
     Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
@@ -30,8 +30,28 @@
             <td>@booking.DropOffLocation</td>
             <td>@booking.PickupDate.ToShortDateString()</td>
             <td>@booking.DropOffDate.ToShortDateString()</td>
-            <td>@booking.Status</td>
-            <td>@booking.IsApproved</td>
+            <td>
+                @if (booking.IsApproved == true)
+                {
+                    <span class="text-info fw-bold">Onaylandı</span>
+                }
+                else if (booking.IsApproved == false)
+                {
+                    <span class="text-danger fw-bold">Reddedildi</span>
+                }
+                else
+                {
+                    <span class="text-warning fw-bold">Beklemede</span>
+                }
+            </td>
+
+            <td>
+                <a class="btn btn-outline-success" asp-action="ApproveRezervation" asp-controller="AdminBooking" asp-route-id="@booking.BookingId">Onayla</a>
+                <a class="btn btn-outline-danger" asp-action="DeclineRezervation" asp-controller="AdminBooking" asp-route-id="@booking.BookingId">Reddet</a>
+                <a class="btn btn-outline-warning" asp-action="WaitingRezervation" asp-controller="AdminBooking" asp-route-id="@booking.BookingId">Beklemeye Al</a>
+            </td>
+
+
             <td><a asp-action="DeleteRezervation" asp-controller="AdminBooking" asp-area="Admin" asp-route-id="@booking.BookingId" class="btn btn-danger">Sil</a></td>
             <td><a asp-action="UpdateRezervation" asp-controller="AdminBooking" asp-area="Admin" asp-route-id="@booking.BookingId" class="btn btn-info">Güncelle</a></td>
         </tr>

@@ -1,0 +1,73 @@
+﻿@model GeneralInfo
+@{
+    ViewData["Title"] = "Bilgi Güncelleme";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="GeneralInfoId"/>
+    <div>
+        <label>Konum</label>
+        <input type="text" class="form-control" asp-for="Location" />
+    </div>
+    <br />
+
+    <div>
+        <label>Telefon Numarası - 1</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" />
+    </div>
+    <br />
+
+    <div>
+        <label>Telefon Numarası - 2</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber2" />
+    </div>
+    <br />
+
+    <div>
+        <label>Email</label>
+        <input type="text" class="form-control" asp-for="Email" />
+    </div>
+    <br />
+
+    <div>
+        <label>Sosyal Medya Linki 1</label>
+        <input type="text" class="form-control" asp-for="SocialMediaAddress1" />
+    </div>
+    <br />
+
+    <div>
+        <label>Sosyal Medya Linki 2</label>
+        <input type="text" class="form-control" asp-for="SocialMediaAddress2" />
+    </div>
+    <br />
+
+    <div>
+        <label>Sosyal Medya Linki 3</label>
+        <input type="text" class="form-control" asp-for="SocialMediaAddress3" />
+    </div>
+    <br />
+
+    <div>
+        <label>Sosyal Medya Linki 4</label>
+        <input type="text" class="form-control" asp-for="SocialMediaAddress4" />
+    </div>
+    <br />
+
+    <div>
+        <label>Açılış Saati</label>
+        <input type="text" class="form-control" asp-for="OpeningHours" />
+    </div>
+    <br />
+
+    <div>
+        <label>Kapanış Saati</label>
+        <input type="text" class="form-control" asp-for="ClosingHourse" />
+    </div>
+    <br />
+    <div class="text-center">
+        <button class="btn btn-outline-primary">Güncelle</button>
+    </div>
+    <br />
+</form>
+

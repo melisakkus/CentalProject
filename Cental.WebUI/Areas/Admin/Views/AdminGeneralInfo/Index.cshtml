@@ -1,0 +1,35 @@
+﻿@model List<GeneralInfo>
+@{
+    ViewData["Title"] = "Genel Bilgiler";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
+}
+
+@{
+    int count = 0;
+}
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Konum</th>
+        <th>Telefon Numarası</th>
+        <th>Email</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Location</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.Email</td>
+            <td><a asp-action="DeleteInfo" asp-route-id="@item.GeneralInfoId" class="btn btn-danger">Sil</a> </td>
+            <td><a asp-action="UpdateInfo" asp-route-id="@item.GeneralInfoId" class="btn btn-info">Güncelle</a> </td>
+        </tr>
+    }
+</table>
+<div class="text-center">
+    <a asp-action="CreateInfo" asp-controller="AdminGeneralInfo" asp-area="Admin" class="btn btn-primary">Yeni Bilgi Ekle</a>
+</div>
+

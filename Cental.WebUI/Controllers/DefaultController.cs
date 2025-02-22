@@ -14,23 +14,17 @@ namespace Cental.WebUI.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult BookingCar()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult BookingCar()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
+        [HttpPost] //anasayfada kullanıcının oluşturduğu rezervasyon talebi
         public IActionResult BookingCar(Booking model)
         {
-            if(model.IsApproved == true)
-            {
-                model.Status = "Onaylandı";
-            }
-            else
-            {
-                model.Status = "Beklemede";
-            }
+            model.Status = "Beklemede";
+            model.IsApproved = null;
             _bookingService.TCreate(model);
             return RedirectToAction("Index");
         }
