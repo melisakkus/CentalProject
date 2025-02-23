@@ -60,6 +60,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IGeneralInfoDal, EfGeneralInfoDal>();
             services.AddScoped<IGeneralInfoService, GeneralInfoManager>();
 
+            services.AddScoped<IMessageDal, EfMessageDal>();
+            services.AddScoped<IMessageService, MessageManager>();
+
             services.AddScoped<IImageService, ImageService>();
 
         }

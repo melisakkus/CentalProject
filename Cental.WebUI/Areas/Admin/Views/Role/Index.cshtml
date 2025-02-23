@@ -1,8 +1,10 @@
 ﻿@model List<ResultRoleDto>
+
 @{
     ViewData["Title"] = "Roller";
-    Layout = "~/Views/AdminLayout/Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
 }
+
 
 @{
     int count = 0;
@@ -17,7 +19,6 @@
         <th>#</th>
         <th>Rol</th>
         <th>Sil</th>
-        <th>Güncelle</th>
     </tr>
 
     @foreach (var item in Model)
@@ -26,12 +27,12 @@
         <tr>
             <td>@count</td>
             <td>@item.Name</td>
-            <td><a asp-action="DeleteRole" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa fa-trash"></i> Sil</a></td>
-            <td><a asp-action="UpdateRole" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa fa-pen"></i> Güncelle</a></td>
+            <td><a asp-action="DeleteRole" asp-route-id="@item.Id" asp-area="Admin" class=" btn btn-danger"><i class="fa fa-trash"></i> Sil</a></td>
         </tr>
     }
 </table>
 
 <div class="text-center">
-    <a asp-action="CreateRole" asp-asp-controller="Role" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Yeni Rol Ekle</a>
+    <a asp-action="CreateRole" asp-controller="Role" asp-area="Admin" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Yeni Rol Ekle</a>
 </div>
+

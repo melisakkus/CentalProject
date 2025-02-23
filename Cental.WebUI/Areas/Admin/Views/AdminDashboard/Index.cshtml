@@ -51,8 +51,8 @@
                             <i class="icon feather icon-mail text-c-red mb-1 d-block"></i>                        
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>---</h5>
-                            <span>---</span>
+                            <h5>@ViewBag.TotalMessageCount</h5>
+                            <span>Toplam Mesaj Sayısı</span>
                         </div>
                     </div>
                 </div>
@@ -83,19 +83,19 @@
                             <i class="fa-regular fa-star text-c-yellow mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>@ViewBag.TotalReviewCount</h5>
-                            <span>Puanlanan Araç Sayısı</span>
+                            <h5>@ViewBag.TotalBookingCount</h5>
+                            <span>Toplam Rezervasyon Sayısı</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>                        
+                            <i class="fa-regular fa-face-smile text-c-yellow mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>---</h5>
-                            <span>Okunmayan Mesaj Sayısı</span>
+                            <h5>@ViewBag.DeclineBookingCount</h5>
+                            <span>Reddedilen Rezervasyonlar</span>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                             <i class="fa-regular fa-face-smile text-c-purple mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>---</h5>
+                            <h5>@ViewBag.ApprovedBookingCount</h5>
                             <span>Onaylanan Rezervasyonlar</span>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                             <i class="fa-regular fa-face-rolling-eyes text-c-purple mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>---</h5>
+                            <h5>@ViewBag.WaitingBookingCount</h5>
                             <span>Bekleyen Rezervasyonlar</span>
                         </div>
                     </div>
@@ -207,6 +207,8 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach (var item in ViewBag.BookingList)
+                            {                      
                             <tr>
                                 <td>
                                     <div class="chk-option">
@@ -218,7 +220,7 @@
                                     <div class="d-inline-block align-middle">
                                         <img src="~/flat-able-admin/src/assets/images/user/avatar-4.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
                                         <div class="d-inline-block">
-                                            <h6>John Deo</h6>
+                                                <h6>@item.PickupLocation</h6>
                                             <p class="text-muted m-b-0">Graphics Designer</p>
                                         </div>
                                     </div>
@@ -227,7 +229,8 @@
                                 <td>Jun, 26</td>
                                 <td class="text-right"><label class="badge badge-light-danger">Low</label></td>
                             </tr>
-                            <tr>
+                            }
+                        @*     <tr>
                                 <td>
                                     <div class="chk-option">
                                         <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
@@ -286,7 +289,7 @@
                                 <td>Guruable</td>
                                 <td>Sep, 22</td>
                                 <td class="text-right"><label class="badge badge-light-primary">high</label></td>
-                            </tr>
+                            </tr> *@
                         </tbody>
                     </table>
                 </div>

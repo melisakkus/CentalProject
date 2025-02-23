@@ -1,0 +1,37 @@
+﻿@model CreateMessageDto
+@{
+    ViewData["Title"] = "Yeni Mesaj Ekle";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Layout.cshtml";
+}
+
+<form method="post">
+    <div>
+        <label>Ad Soyad</label>
+        <input type="text" class="form-control" asp-for="Name" />
+    </div>
+    <br />
+
+    <div>
+        <label>Email</label>
+        <input type="text" class="form-control" asp-for="Email" />
+    </div>
+    <br />
+
+    <div>
+        <label>Konu</label>
+        <input type="text" class="form-control" asp-for="Subject" />
+    </div>
+    <br />
+
+    <div>
+        <label>Mesaj</label>
+        <input type="text" class="form-control" asp-for="MessageContent" />
+    </div>
+    <br />
+
+    <div class="text-center">
+        <button class="btn btn-outline-primary">Kaydet</button>
+    </div>
+    <br />
+</form>
+

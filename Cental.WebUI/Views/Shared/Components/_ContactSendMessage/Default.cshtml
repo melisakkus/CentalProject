@@ -35,7 +35,7 @@
 
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-light w-100 py-3" type="submit" onclick="sendMessage()">Mesaj Gönder</button>
+                    <button class="btn btn-light w-100 py-3" type="button" onclick="sendMessage(event)">Mesaj Gönder</button>
                 </div>
             </div>
         </form>
@@ -44,8 +44,8 @@
 
 
 <script>
-    function sendMessage() {
-
+    function sendMessage(event) {
+        event.preventDefault(); // Formun gönderilmesini engelle
         Swal.fire({
             title: "Mesajınız başarıyla gönderildi.",
             text: "En kısa sürede geri dönüş yapılacaktır.",
@@ -57,8 +57,12 @@
             cancelButtonText: "İptal Et"
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Contact/Index";
+                // Formu manuel olarak göndermek için:
+                event.target.closest("form").submit(); // Formu gönder
+                window.location.href = "/Contact/Index"; // Yalnızca "Tamam" butonuna tıklanırsa yönlendirme yapılır
             }
         });
     }
 </script>
+
+

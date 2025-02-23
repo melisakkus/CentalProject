@@ -9,12 +9,21 @@ namespace Cental.DataAccessLayer.Abstract
 {
     public interface IDashboardDal
     {
-        int TotalUserCount();
-        int TotalCarCount();
-        int GetBrandCount();
+        int TotalUserCount(); //tamam
+        int TotalCarCount(); //tamam
+        int GetBrandCount(); //tamam 
         int GetReviewCount();
-        int GetTestimonialCount();
-        double GetTestimonialAvarage();
+        int GetTestimonialCount(); //tamam
+        double GetTestimonialAvarage(); //tamam
         List<Car> GetLastAddesCars();
+        List<Booking> GetBookings();
+        int GetBookingCount(); //tamam
+        int ApprovedBookingCount(); //tamam
+        int WaitingBookingCount(); //tamam
+        int DeclineBookingCount(); //tamam
+
+        List<Message> GetMessages();
+        int GetMessageCount(); //tamam
+        List<Testimonial> GetTestimonials();
     }
 }

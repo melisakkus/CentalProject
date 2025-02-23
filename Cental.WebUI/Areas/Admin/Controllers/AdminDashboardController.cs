@@ -24,6 +24,16 @@ namespace Cental.WebUI.Areas.Admin.Controllers
             var value = _dashboardService.TGetTestimonialAvarage();
             ViewBag.TestimonialAvarage = Math.Round(value, 2);
 
+            ViewBag.TotalMessageCount = _dashboardService.TGetMessageCount();
+            ViewBag.TotalBookingCount = _dashboardService.TGetBookingCount();
+            ViewBag.MessageList = _dashboardService.TGetMessages();
+            ViewBag.BookingList = _dashboardService.TGetBookings();
+            ViewBag.TestimonialList = _dashboardService.TGetTestimonials();
+
+            ViewBag.ApprovedBookingCount = _dashboardService.TApprovedBookingCount();
+            ViewBag.WaitingBookingCount = _dashboardService.TWaitingBookingCount();
+            ViewBag.DeclineBookingCount = _dashboardService.TDeclineBookingCount();
+
             //ViewBag.LastAddedCars = _dashboardService.TGetLastAddesCars();
 
             return View();

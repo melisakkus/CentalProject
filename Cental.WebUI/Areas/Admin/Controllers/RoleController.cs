@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cental.WebUI.Controllers
+namespace Cental.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     [Authorize(Roles = "Admin")]
-
     public class RoleController(RoleManager<AppRole> roleManager) : Controller
     {
         public IActionResult Index()
@@ -45,27 +45,27 @@ namespace Cental.WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> UpdateRole(int id)
-        {
-            var role = await roleManager.FindByIdAsync(id.ToString());
-            var updateDto = role.Adapt<UpdateRoleDto>();
-            return View(updateDto);
-        }
-        [HttpPost]
-        public async Task<IActionResult> UpdateRole(UpdateRoleDto model)
-        {
-            var role = model.Adapt<AppRole>();
-            var result = await roleManager.UpdateAsync(role);
-            if (!result.Succeeded)
-            {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                    return View(model);
-                }
-            }
-            return RedirectToAction("Index");
-        }
+        //public async Task<IActionResult> UpdateRole(int id)
+        //{
+        //    var role = await roleManager.FindByIdAsync(id.ToString());
+        //    var updateDto = role.Adapt<UpdateRoleDto>();
+        //    return View(updateDto);
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> UpdateRole(UpdateRoleDto model)
+        //{
+        //    var role = model.Adapt<AppRole>();
+        //    var result = await roleManager.UpdateAsync(role);
+        //    if (!result.Succeeded)
+        //    {
+        //        foreach (var error in result.Errors)
+        //        {
+        //            ModelState.AddModelError(string.Empty, error.Description);
+        //            return View(model);
+        //        }
+        //    }
+        //    return RedirectToAction("Index");
+        //}
 
     }
 }

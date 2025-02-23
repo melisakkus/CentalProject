@@ -16,6 +16,18 @@ namespace Cental.DataAccessLayer.Concrete
         {
             _context = context;
         }
+
+        public int GetBookingCount()
+        {
+            return _context.Bookings.Count(); ;
+        }
+
+        public List<Booking> GetBookings()
+        {
+            var bookings = _context.Bookings.OrderByDescending(x => x.BookingId).Take(5).ToList();
+            return bookings;
+        }
+
         public int GetBrandCount()
         {
             return _context.Brands.Count();
@@ -23,13 +35,28 @@ namespace Cental.DataAccessLayer.Concrete
 
         public List<Car> GetLastAddesCars()
         {
-            var cars = _context.Cars.OrderByDescending(x => x.CarId).Take(4).ToList();
+            var cars = _context.Cars.OrderByDescending(x => x.CarId).Take(6).ToList();
             return cars;
+        }
+
+        public int GetMessageCount()
+        {
+            return _context.Messages.Count(); ;
+        }
+
+        public List<Message> GetMessages()
+        {
+            return _context.Messages.ToList();
         }
 
         public int GetReviewCount()
         {
             return _context.Reviews.Count();
+        }
+
+        public List<Testimonial> GetTestimonials()
+        {
+            return _context.Testimonials.ToList();
         }
 
         public double GetTestimonialAvarage()
@@ -51,6 +78,21 @@ namespace Cental.DataAccessLayer.Concrete
         public int TotalUserCount()
         {
             return _context.Users.Count();
+        }
+
+        public int ApprovedBookingCount()
+        {
+            return _context.Bookings.Where(x=>x.IsApproved == true).Count();
+        }
+
+        public int WaitingBookingCount()
+        {
+            return _context.Bookings.Where(x => x.IsApproved == true).Count();
+        }
+
+        public int DeclineBookingCount()
+        {
+            return _context.Bookings.Where(x => x.IsApproved == false).Count();
         }
     }
 }
