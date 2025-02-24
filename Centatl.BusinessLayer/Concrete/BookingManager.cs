@@ -35,5 +35,10 @@ namespace Cental.BusinessLayer.Concrete
         {
             _bookingDal.Update(entity);
         }
+
+        public List<Booking> TUsersBookings(int id)
+        {
+            return _bookingDal.UsersBookings(id);
+        }
     }
 }
