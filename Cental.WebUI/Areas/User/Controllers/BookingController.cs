@@ -13,7 +13,7 @@ namespace Cental.WebUI.Areas.User.Controllers
     [Area("User")]
     public class BookingController(UserManager<AppUser> _userManager,IBookingService _bookingService, ICarService _carService, IMapper _mapper) : Controller
     {
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name); 
             var bookings = _bookingService.TUsersBookings(user.Id);

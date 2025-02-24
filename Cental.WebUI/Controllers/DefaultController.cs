@@ -14,12 +14,6 @@ namespace Cental.WebUI.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public IActionResult BookingCar()
-        //{
-        //    return View();
-        //}
-
         [HttpPost] //anasayfada kullanıcının oluşturduğu rezervasyon talebi
         public IActionResult BookingCar(Booking model)
         {

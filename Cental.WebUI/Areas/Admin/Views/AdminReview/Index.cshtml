@@ -11,7 +11,8 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
-        <th>Puan</th>
+@*         <th>Kullanıcı</th>
+ *@        <th>Puan</th>
         <th>Araç Görseli</th>
         <th>Araç Bilgileri</th>
         <th>Sil</th>
@@ -22,7 +23,8 @@
         count++;
         <tr>
             <td>@count</td>
-            <td>
+@*              <td>@item.Car.Bookings.revi</td>
+ *@             <td>
                 @item.Rating / 10 <br />
                 @for(int i = 1; i<=item.Rating;i++)
                 {

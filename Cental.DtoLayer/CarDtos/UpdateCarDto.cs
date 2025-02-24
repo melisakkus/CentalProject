@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cental.EntityLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace Cental.DtoLayer.CarDtos
         public string Transmission { get; set; }
         public int Kilometer { get; set; }
         public int BrandId { get; set; }
+        public virtual List<Booking> Bookings { get; set; }
+
 
     }
 }

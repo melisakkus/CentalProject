@@ -9,5 +9,6 @@ namespace Cental.DataAccessLayer.Abstract
 {
     public interface IReviewDal : IGenericDal<Review>
     {
+        List<Review> GetReviewsById(int id);
     }
 }

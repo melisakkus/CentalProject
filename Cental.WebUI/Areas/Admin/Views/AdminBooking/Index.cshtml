@@ -9,6 +9,7 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
+        <th>Kullanıcı</th>
         <th>Seçilen Araç</th>
         <th>Alma Noktası</th>
         <th>Bırakma Noktası</th>
@@ -25,7 +26,8 @@
         count++;
         <tr>
             <td>@count</td>
-            <td>@booking.Car.ModelName</td>
+            <td>@booking.User.FirstName @booking.User.LastName</td>
+            <td>@booking.Car.Brand.BrandName @booking.Car.ModelName</td>
             <td>@booking.PickupLocation</td>
             <td>@booking.DropOffLocation</td>
             <td>@booking.PickupDate.ToShortDateString()</td>

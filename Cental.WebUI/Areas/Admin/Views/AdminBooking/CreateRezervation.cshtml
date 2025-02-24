@@ -7,6 +7,16 @@
 <form method="post">
 
     <label>Aracınızı Seçin</label>
+
+    <select asp-for="UserId" class="form-control">
+        <option selected>Rezervasyon oluşturmak istediğiniz kullanıcıyı seçin</option>
+        @foreach (var user in ViewBag.UserSelectedList)
+        {
+            <option value="@user.Value">@user.Text</option>
+        }
+    </select>
+    <br />
+
     <select asp-for="CarId" class="form-control">
         <option selected>Aracınızı seçin</option>
         @foreach (var car in ViewBag.SelectedCarList)

@@ -17,6 +17,8 @@ namespace Cental.DtoLayer.BookingDtos
         public string Status { get; set; }
 
         public int CarId { get; set; }
+        public virtual AppUser? User { get; set; }
+
         public int? UserId { get; set; }
 
     }
