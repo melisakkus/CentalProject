@@ -31,9 +31,9 @@ namespace Cental.BusinessLayer.Concrete
            return _reviewDal.GetById(id);
         }
 
-        public List<Review> TGetReviewsById(int id)
+        public List<Review> TGetReviewsByUserId(int id)
         {
-            return _reviewDal.GetReviewsById(id);
+            return _reviewDal.GetReviewsByUserId(id);
         }
 
         public void TUpdate(Review entity)

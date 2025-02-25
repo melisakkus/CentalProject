@@ -5,6 +5,8 @@
 }
 
 <form method="post">
+    <input type="hidden" asp-for="UserId" value="@ViewBag.userId" />
+
     <div>
         <label>Puanınızı giriniz : </label>
         <select class="form-control" asp-for="Rating">

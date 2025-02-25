@@ -14,6 +14,8 @@ namespace Cental.DtoLayer.ReviewDtos
         public int Rating { get; set; }
         public virtual Car Car { get; set; }
         public int CarId { get; set; }
+        public virtual AppUser? User { get; set; }
+        public int? UserId { get; set; }
     }
 }
 

@@ -16,9 +16,9 @@ namespace Cental.DataAccessLayer.Concrete
         {
         }
 
-        public List<Review> GetReviewsById(int id)
+        public List<Review> GetReviewsByUserId(int id)
         {
-            var reviews = _context.Reviews.Where(x => x.ReviewId == id).ToList();
+            var reviews = _context.Reviews.Where(x => x.UserId == id).ToList();
             return reviews;
         }
     }

@@ -5,6 +5,15 @@
 }
 
 <form method="post">
+
+    <div>
+        <label>Kullanıcı seçiniz : </label>
+        <select class="form-control" asp-items="@ViewBag.UserList" asp-for="UserId">
+            <option selected disabled>Puanlamasını girmek istediğiniz kulanıcıyı seçiniz.</option>
+        </select>
+    </div>
+    <br />
+
     <div>
         <label>Puanınızı giriniz : </label>
         <select class="form-control" asp-for="Rating">

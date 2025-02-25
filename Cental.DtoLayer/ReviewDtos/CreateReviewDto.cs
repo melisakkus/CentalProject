@@ -9,8 +9,11 @@ namespace Cental.DtoLayer.ReviewDtos
 {
     public class CreateReviewDto
     {
+
         public int Rating { get; set; }
         public virtual Car Car { get; set; }
         public int CarId { get; set; }
+        public virtual AppUser? User { get; set; }
+        public int? UserId { get; set; }
     }
 }

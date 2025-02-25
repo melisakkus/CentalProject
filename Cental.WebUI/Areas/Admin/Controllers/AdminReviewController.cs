@@ -3,6 +3,7 @@ using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.ReviewDtos;
 using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,7 +11,7 @@ namespace Cental.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class AdminReviewController(IReviewService _reviewService, ICarService _carService, IMapper _mapper) : Controller
+    public class AdminReviewController(IReviewService _reviewService, ICarService _carService, IMapper _mapper, UserManager<AppUser> _userManager) : Controller
     {
         public IActionResult Index()
         {
@@ -36,9 +37,22 @@ namespace Cental.WebUI.Areas.Admin.Controllers
                            }).ToList();
             ViewBag.CarList = carList;
         }
+
+        private void SelectUserList()
+        {
+            var users = _userManager.Users.ToList();
+            var userList = (from user in users
+                           select new SelectListItem
+                           {
+                               Text = user.FirstName + " " + user.LastName + " " + "(" +user.UserName+ ")",
+                               Value = user.Id.ToString()
+                           }).ToList();
+            ViewBag.UserList = userList;
+        }
         public IActionResult UpdateReview(int id)
         {
             SelectCarList();
+            SelectUserList();
             var review = _reviewService.TGetById(id);
             var dtoReview = _mapper.Map<UpdateReviewDto>(review);
             return View(dtoReview);
@@ -53,6 +67,7 @@ namespace Cental.WebUI.Areas.Admin.Controllers
 
         public IActionResult CreateReview()
         {
+            SelectUserList();
             SelectCarList();
             return View();
         }

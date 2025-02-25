@@ -15,9 +15,8 @@ namespace Cental.WebUI.Areas.User.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            //var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            //var reviews = _reviewService.TGetReviewsById(user.Id);
-            var reviews = _reviewService.TGetAll();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var reviews = _reviewService.TGetReviewsByUserId(user.Id);
             return View(reviews);
         }
 
@@ -53,8 +52,10 @@ namespace Cental.WebUI.Areas.User.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult CreateReview()
+        public async Task<IActionResult> CreateReview()
         {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.userId = user.Id;
             SelectCarList();
             return View();
         }
