@@ -31,9 +31,9 @@ namespace Cental.BusinessLayer.Concrete
             return _dashboardDal.GetBrandCount();
         }
 
-        public List<Car> TGetLastAddesCars()
+        public List<Car> TGetLastAddedCars()
         {
-            return _dashboardDal.GetLastAddesCars();
+            return _dashboardDal.GetLastAddedCars();
         }
 
         public List<Message> TGetMessages()

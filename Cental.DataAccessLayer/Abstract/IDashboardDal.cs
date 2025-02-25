@@ -15,8 +15,8 @@ namespace Cental.DataAccessLayer.Abstract
         int GetReviewCount();
         int GetTestimonialCount(); //tamam
         double GetTestimonialAvarage(); //tamam
-        List<Car> GetLastAddesCars();
-        List<Booking> GetBookings();
+        List<Car> GetLastAddedCars();  //tamam
+        List<Booking> GetBookings(); //tamam
         int GetBookingCount(); //tamam
         int ApprovedBookingCount(); //tamam
         int WaitingBookingCount(); //tamam

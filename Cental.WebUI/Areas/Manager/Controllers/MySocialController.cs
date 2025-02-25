@@ -34,6 +34,21 @@ namespace Cental.WebUI.Areas.Manager.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult UpdateSocial(int id)
+        {
+            var socialmedia = _userSocialService.TGetById(id);
+            var dto = _mapper.Map<UpdateUserSocialDto>(socialmedia);
+            return View(dto);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateSocial(UpdateUserSocialDto model)
+        {
+            var newSocial = _mapper.Map<UserSocial>(model);
+            _userSocialService.TUpdate(newSocial);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult DeleteSocial(int id)
         {
             _userSocialService.TDelete(id);

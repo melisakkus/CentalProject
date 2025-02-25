@@ -1,4 +1,5 @@
 ﻿using Cental.DtoLayer.UserDtos;
+using Cental.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Cental.DtoLayer.UserSocialDtos
         public string Url { get; set; }
         public string Icon { get; set; }
         public string Title { get; set; }
+        public virtual AppUser User { get; set; }
         public int UserId { get; set; }
     }
 }

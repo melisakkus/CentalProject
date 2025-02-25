@@ -34,7 +34,7 @@ namespace Cental.WebUI.Areas.Admin.Controllers
             ViewBag.WaitingBookingCount = _dashboardService.TWaitingBookingCount();
             ViewBag.DeclineBookingCount = _dashboardService.TDeclineBookingCount();
 
-            //ViewBag.LastAddedCars = _dashboardService.TGetLastAddesCars();
+            ViewBag.LastAddedCars = _dashboardService.TGetLastAddedCars();
 
             return View();
         }

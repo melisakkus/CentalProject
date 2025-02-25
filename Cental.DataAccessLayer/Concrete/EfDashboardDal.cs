@@ -24,7 +24,7 @@ namespace Cental.DataAccessLayer.Concrete
 
         public List<Booking> GetBookings()
         {
-            var bookings = _context.Bookings.OrderByDescending(x => x.BookingId).Take(5).ToList();
+            var bookings = _context.Bookings.OrderByDescending(x => x.BookingId).Where(x=>x.IsApproved == null).Take(5).ToList();
             return bookings;
         }
 
@@ -33,7 +33,7 @@ namespace Cental.DataAccessLayer.Concrete
             return _context.Brands.Count();
         }
 
-        public List<Car> GetLastAddesCars()
+        public List<Car> GetLastAddedCars()
         {
             var cars = _context.Cars.OrderByDescending(x => x.CarId).Take(6).ToList();
             return cars;
@@ -56,7 +56,7 @@ namespace Cental.DataAccessLayer.Concrete
 
         public List<Testimonial> GetTestimonials()
         {
-            return _context.Testimonials.ToList();
+            return _context.Testimonials.OrderByDescending(x => x.TestimonialId).Take(3).ToList();
         }
 
         public double GetTestimonialAvarage()

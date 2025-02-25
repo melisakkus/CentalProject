@@ -15,7 +15,7 @@ namespace Cental.BusinessLayer.Abstract
         int TGetReviewCount();
         double TGetTestimonialAvarage();
         int TGetTestimonialCount();
-        List<Car> TGetLastAddesCars();
+        List<Car> TGetLastAddedCars();
         List<Booking> TGetBookings();
         List<Message> TGetMessages();
         List<Testimonial> TGetTestimonials();
