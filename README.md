@@ -31,7 +31,7 @@ Site tasarımında .NET Core ile N Katmanlı Mimari prensiplerine uygun bir yap�
 *	SweetAlert
 *	PagedList
   
-Ayrıca, ViewComponents yapısı ve Lazy Loading gibi gelişmiş tekniklerle site performansı optimize edilmiştir.
+Ayrıca, Areas, ViewComponents yapısı ve Lazy Loading gibi gelişmiş tekniklerle site performansı optimize edilmiştir.
 
 ## Proje Görselleri
 ![2025-02-25_23-12-23](https://github.com/user-attachments/assets/2becfa20-c9b1-48eb-8228-fd38d598e4dd)
